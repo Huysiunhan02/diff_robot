@@ -7,6 +7,7 @@
     <xacro:include filename="$(find ${package_name})/description/common_macros.urdf.xacro" />
     <xacro:include filename="$(find ${package_name})/description/common_sensors.urdf.xacro" />
     <xacro:include filename="$(find ${package_name})/description/andino_caster_macro.urdf.xacro" />
+    <xacro:include filename="inertial_macros.xacro" />
 
     <xacro:arg name="use_ros2_control" default="true" />
     <xacro:arg name="sim_mode" default="false" />
@@ -26,7 +27,6 @@
     <xacro:property name="sensor_yaml" value="$(arg yaml_config_dir)/sensors.yaml" />
     <xacro:property name="sensor_prop" value="${xacro.load_yaml(sensor_yaml)}" />
 
-    <xacro:include filename="inertial_macros.xacro" />
 
     <!-- Footprint -->
     <xacro:footprint wheel_props="${wheel_props}" />
@@ -68,7 +68,7 @@
     </gazebo>
 
     <!-- Wheels -->
-    <xacro:wheel prefix="right" reflect="-1"
+    <!-- <xacro:wheel prefix="right" reflect="-1"
         wheel_props="${wheel_props}"
         base_props="${base_props}">
     </xacro:wheel>
@@ -76,20 +76,22 @@
     <xacro:wheel prefix="left" reflect="1"
         wheel_props="${wheel_props}"
         base_props="${base_props}">
-    </xacro:wheel>
+    </xacro:wheel> -->
 
     <!-- left wheel link -->
-    <!-- <joint name="left_wheel_joint" type="continuous">
+    <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link" />
         <child link="left_wheel" />
-        <origin xyz="0 0.1 0.0" rpy="-${pi/2} 0 0" />
-        <axis xyz="0 0 1" />
+        <origin xyz="0 0.1 0.0" rpy="${pi/2} 0 0" />
+        <axis xyz="0 0 -1" />
     </joint>
 
     <link name="left_wheel">
         <visual>
             <geometry>
-                <cylinder radius="0.031" length="0.025" />
+                <!-- <cylinder radius="0.031" length="0.025" /> -->
+                <mesh
+                filename="file://$(find diff_robot)/meshes//components/wheel.stl" />
             </geometry>
             <material name="blue" />
         </visual>
@@ -104,20 +106,22 @@
     </link>
     <gazebo reference="left_wheel">
         <material>Gazebo/Blue</material>
-    </gazebo> -->
+    </gazebo>
 
     <!-- right wheel link -->
-    <!-- <joint name="right_wheel_joint" type="continuous">
+    <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link" />
         <child link="right_wheel" />
-        <origin xyz="0 -0.1 0.0" rpy="${pi/2} 0 0" />
-        <axis xyz="0 0 -1" />
+        <origin xyz="0 -0.1 0.0" rpy="-${pi/2} 0 0" />
+        <axis xyz="0 0 1" />
     </joint>
 
     <link name="right_wheel">
         <visual>
             <geometry>
-                <cylinder radius="0.031" length="0.025" />
+                <!-- <cylinder radius="0.031" length="0.025" /> -->
+                <mesh
+                filename="file://$(find diff_robot)/meshes//components/wheel.stl" />
             </geometry>
             <material name="blue" />
         </visual>
@@ -132,14 +136,14 @@
     </link>
     <gazebo reference="right_wheel">
         <material>Gazebo/Blue</material>
-    </gazebo> -->
+    </gazebo>
 
     <!-- caster wheel link -->
 
-    <!-- <joint name="caster_wheel_joint" type="fixed">
+    <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis" />
         <child link="caster_wheel" />
-        <origin xyz="-0.03 0.0 -0.003" />
+        <origin xyz="-0.03 0.0 -0.0" />
     </joint>
 
     <link name="caster_wheel">
@@ -162,11 +166,11 @@
         <material>Gazebo/White</material>
         <mu1 value="0.001" />
         <mu2 value="0.001" />
-    </gazebo> -->
+    </gazebo>
 
-    <xacro:caster_wheel reflect="-1" use_fixed="$(arg use_fixed_caster)"
+    <!-- <xacro:caster_wheel reflect="-1" use_fixed="$(arg use_fixed_caster)"
         wheel_props="${caster_wheel_props}">
-    </xacro:caster_wheel>
+    </xacro:caster_wheel> -->
 
     <xacro:laser prefix="rplidar" parent_link="chassis" sensor_prop="${sensor_prop}">
     </xacro:laser>

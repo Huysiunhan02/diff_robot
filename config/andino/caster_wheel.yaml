@@ -4,7 +4,7 @@ base:
     x: 0.04
     y: 0.04
     z: 0.04
-  dx: -0.12
+  dx: -0.02
   dy: 0.0
   dz: 0.03
   mesh: 'caster_base.stl'
@@ -15,7 +15,7 @@ hub:
     x: 0.04
     y: 0.04
     z: 0.04
-  dx: -0.121
+  dx: -0.021
   dy: 0.0
   dz: 0.03
   mesh: 'caster_wheel_support.stl'

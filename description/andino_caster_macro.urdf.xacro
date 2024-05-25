@@ -64,7 +64,7 @@
       <origin
         xyz="${wheel_props['base']['dx']} ${-wheel_props['base']['dy'] * locationright} ${wheel_props['base']['dz']}"
         rpy="0 0 0" />
-      <parent link="base_link" />
+      <parent link="chassis" />
       <child link="caster_base_link" />
       <axis xyz="0 0 1" />
       <dynamics damping="0.01" friction="0.0" />
@@ -119,7 +119,7 @@
         <origin
           xyz="${wheel_props['hub']['dx']} ${-wheel_props['hub']['dy'] * locationright} ${wheel_props['hub']['dz']}"
           rpy="0 0 0" />
-        <parent link="base_link" />
+        <parent link="chassis" />
         <child link="caster_rotation_link" />
         <axis xyz="0 0 1" />
         <dynamics damping="0.01" friction="0.0" />
@@ -130,7 +130,7 @@
         <origin
           xyz="${wheel_props['hub']['dx']} ${-wheel_props['hub']['dy'] * locationright} ${wheel_props['hub']['dz']}"
           rpy="0 0 0" />
-        <parent link="base_link" />
+        <parent link="chassis" />
         <child link="caster_rotation_link" />
         <axis xyz="0 0 1" />
         <dynamics damping="0.01" friction="0.0" />
