@@ -31,12 +31,12 @@
           <geometry>
             <xacro:if value="${scale != '' }">
               <mesh
-                filename="file://$(find diff_robot)/meshes/${robot_name}/${wheel_props['base']['mesh']}"
+                filename="package://diff_robot/meshes/${robot_name}/${wheel_props['base']['mesh']}"
                 scale="${scale}" />
             </xacro:if>
             <xacro:if value="${scale == '' }">
               <mesh
-                filename="file://$(find diff_robot)/meshes/${robot_name}/${wheel_props['base']['mesh']}" />
+                filename="package://diff_robot/meshes/${robot_name}/${wheel_props['base']['mesh']}" />
             </xacro:if>
           </geometry>
           <material name="silver" />
@@ -85,12 +85,12 @@
           <geometry>
             <xacro:if value="${scale != '' }">
               <mesh
-                filename="file://$(find diff_robot)/meshes/${robot_name}/${wheel_props['hub']['mesh']}"
+                filename="package://diff_robot/meshes/${robot_name}/${wheel_props['hub']['mesh']}"
                 scale="${scale}" />
             </xacro:if>
             <xacro:if value="${scale == '' }">
               <mesh
-                filename="file://$(find diff_robot)/meshes/${robot_name}/${wheel_props['hub']['mesh']}" />
+                filename="package://diff_robot/meshes/${robot_name}/${wheel_props['hub']['mesh']}" />
             </xacro:if>
           </geometry>
           <material name="silver" />
@@ -150,12 +150,12 @@
           <geometry>
             <xacro:if value="${scale != '' }">
               <mesh
-                filename="file://$(find diff_robot)/meshes/${robot_name}/${wheel_props['wheel']['mesh']}"
+                filename="package://diff_robot/meshes/${robot_name}/${wheel_props['wheel']['mesh']}"
                 scale="${scale}" />
             </xacro:if>
             <xacro:if value="${scale == '' }">
               <mesh
-                filename="file://$(find diff_robot)/meshes/${robot_name}/${wheel_props['wheel']['mesh']}" />
+                filename="package://diff_robot/meshes/${robot_name}/${wheel_props['wheel']['mesh']}" />
             </xacro:if>
           </geometry>
           <material name="black" />

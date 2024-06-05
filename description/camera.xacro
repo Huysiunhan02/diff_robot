@@ -12,7 +12,7 @@
             <geometry>
                 <box size="0.01 0.03 0.03"/>
             </geometry>
-            <material name="red"/>
+            <material name="black"/>
         </visual>
     </link>
 

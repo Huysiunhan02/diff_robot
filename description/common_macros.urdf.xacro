@@ -300,7 +300,10 @@
   </material>
   <material name="orange">
     <color rgba="1 0.3 0.1 1"/>
-</material>
+  </material>
+  <material name="white_1">
+    <color rgba="0.98 1 0.88 1"/>
+  </material>
 <!-- ========================================================================-->
 
 </robot>

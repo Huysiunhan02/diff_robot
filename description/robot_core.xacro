@@ -9,9 +9,6 @@
     <xacro:include filename="$(find ${package_name})/description/andino_caster_macro.urdf.xacro" />
     <xacro:include filename="inertial_macros.xacro" />
 
-    <xacro:arg name="use_ros2_control" default="true" />
-    <xacro:arg name="sim_mode" default="false" />
-
     <xacro:arg name="yaml_config_dir" default="$(find ${package_name})/config/${robot_name}" />
 
     <xacro:property name="caster_wheel_yaml" value="$(arg yaml_config_dir)/caster_wheel.yaml" />
@@ -49,7 +46,7 @@
             <geometry>
                 <box size="0.23 0.15 0.075" />
             </geometry>
-            <material name="white" />
+            <material name="white_1" />
         </visual>
         <collision>
             <origin xyz="0.05 0.0 0.075" />
@@ -58,7 +55,7 @@
             </geometry>
             <material name="white" />
         </collision>
-        <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
+        <xacro:inertial_box mass="1" x="0.3" y="0.3" z="0.15">
             <origin xyz="0.05 0 0.075" rpy="0 0 0" />
         </xacro:inertial_box>
     </link>
@@ -82,7 +79,7 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link" />
         <child link="left_wheel" />
-        <origin xyz="0 0.1 0.0" rpy="${pi/2} 0 0" />
+        <origin xyz="0 0.095 0.0" rpy="${pi/2} 0 0" />
         <axis xyz="0 0 -1" />
     </joint>
 
@@ -90,10 +87,9 @@
         <visual>
             <geometry>
                 <!-- <cylinder radius="0.031" length="0.025" /> -->
-                <mesh
-                filename="file://$(find diff_robot)/meshes//components/wheel.stl" />
+                <mesh filename="package://diff_robot/meshes//components/wheel.stl" />
             </geometry>
-            <material name="blue" />
+            <material name="dark_grey" />
         </visual>
         <collision>
             <geometry>
@@ -105,14 +101,14 @@
         </xacro:inertial_cylinder>
     </link>
     <gazebo reference="left_wheel">
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/Black</material>
     </gazebo>
 
     <!-- right wheel link -->
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link" />
         <child link="right_wheel" />
-        <origin xyz="0 -0.1 0.0" rpy="-${pi/2} 0 0" />
+        <origin xyz="0 -0.095 0.0" rpy="-${pi/2} 0 0" />
         <axis xyz="0 0 1" />
     </joint>
 
@@ -120,10 +116,12 @@
         <visual>
             <geometry>
                 <!-- <cylinder radius="0.031" length="0.025" /> -->
-                <mesh
-                filename="file://$(find diff_robot)/meshes//components/wheel.stl" />
+                <!-- <mesh
+                filename="file://$(find diff_robot)/meshes//components/wheel.stl" /> -->
+                <mesh filename="package://diff_robot/meshes//components/wheel.stl" />
+
             </geometry>
-            <material name="blue" />
+            <material name="dark_grey" />
         </visual>
         <collision>
             <geometry>
@@ -135,7 +133,7 @@
         </xacro:inertial_cylinder>
     </link>
     <gazebo reference="right_wheel">
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/Black</material>
     </gazebo>
 
     <!-- caster wheel link -->
@@ -143,15 +141,15 @@
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis" />
         <child link="caster_wheel" />
-        <origin xyz="-0.03 0.0 -0.0" />
+        <origin xyz="-0.03 0.0 -0.008" />
     </joint>
 
     <link name="caster_wheel">
         <visual>
             <geometry>
-                <sphere radius="0.035" />
+                <sphere radius="0.025" />
             </geometry>
-            <material name="black" />
+            <material name="white" />
         </visual>
         <collision>
             <geometry>
