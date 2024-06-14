@@ -31,7 +31,7 @@ mkdir -p ~/dev_ws/src
 2. Clone các package vào thư mục src
 
 ```
-cd ~/ws/src
+cd ~/dev_ws/src
 ```
 
 ```
