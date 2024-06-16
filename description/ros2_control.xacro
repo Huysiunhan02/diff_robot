@@ -11,20 +11,21 @@
                 <param name="device">/dev/ttyUSB_ARDUINO</param>
                 <param name="baud_rate">57600</param>
                 <param name="timeout_ms">1000</param>
-                <param name="enc_counts_per_rev">521</param>
+                <param name="enc_counts_per_rev_l">2273</param>
+                <param name="enc_counts_per_rev_r">2097</param>
             </hardware>
             <joint name="left_wheel_joint">
                 <command_interface name="velocity">
-                    <param name="min">-5</param>
-                    <param name="max">5</param>
+                    <param name="min">-1</param>
+                    <param name="max">1</param>
                 </command_interface>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
             </joint>
             <joint name="right_wheel_joint">
                 <command_interface name="velocity">
-                    <param name="min">-5</param>
-                    <param name="max">5</param>
+                    <param name="min">-1</param>
+                    <param name="max">1</param>
                 </command_interface>
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>

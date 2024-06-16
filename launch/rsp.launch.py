@@ -31,24 +31,6 @@ def generate_launch_description():
         parameters=[params]
     )
 
-    # pkg_diff_robot = get_package_share_directory('diff_robot')
-
-    # # Obtain urdf from xacro files.
-    # arguments = {'yaml_config_dir': os.path.join(pkg_diff_robot, 'config', 'andino')}
-    # doc = xacro.process_file(os.path.join(pkg_diff_robot, 'description', 'robot.urdf.xacro'), mappings = arguments)
-    # robot_desc = doc.toprettyxml(indent='  ')
-    # params = {'robot_description': robot_desc,
-    #           'publish_frequency': 30.0}
-
-    # # Robot state publisher
-    # rsp = Node(package='robot_state_publisher',
-    #             executable='robot_state_publisher',
-    #             namespace='',
-    #             output='both',
-    #             parameters=[params],
-    # )
-
-
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
