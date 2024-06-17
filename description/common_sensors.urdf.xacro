@@ -70,22 +70,22 @@
                     <origin xyz="0 0 0" rpy="0 0 0" />
                     <geometry>
                         <box
-                            size="${sensor_prop['camera']['box_size']} ${sensor_prop['camera']['box_size']} ${sensor_prop['camera']['box_size']}" />
+                            size="${sensor_prop['camera']['x_size']} ${sensor_prop['camera']['y_size']} ${sensor_prop['camera']['z_size']}" />
                     </geometry>
-                    <material name="blue" />
+                    <material name="dark_grey" />
                 </visual>
             </xacro:if>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <box
-                        size="${sensor_prop['camera']['box_size']} ${sensor_prop['camera']['box_size']} ${sensor_prop['camera']['box_size']}" />
+                        size="${sensor_prop['camera']['x_size']} ${sensor_prop['camera']['y_size']} ${sensor_prop['camera']['z_size']}" />
                 </geometry>
             </collision>
             <xacro:box_inertia m="${sensor_prop['camera']['mass']}"
-                x="${sensor_prop['camera']['box_size']}"
-                y="${sensor_prop['camera']['box_size']}"
-                z="${sensor_prop['camera']['box_size']}"
+                x="${sensor_prop['camera']['x_size']}"
+                y="${sensor_prop['camera']['y_size']}"
+                z="${sensor_prop['camera']['z_size']}"
                 o_xyz="0 0 0"
                 o_rpy="0 0 0" />
         </link>

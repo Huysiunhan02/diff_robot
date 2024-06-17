@@ -16,7 +16,7 @@
                params="prefix reflect wheel_props base_props ">
 
   <xacro:property name="pos_x_joint"
-     value="${(base_props['base']['x_size']/2) - wheel_props['x_offset']}"/>
+     value="${wheel_props['x_offset']}"/>
   <xacro:property name="pos_y_joint"
     value="${(base_props['base']['y_size']/2) + wheel_props['y_offset'] + (wheel_props['length']/2)}"/>
   <xacro:property name="pos_z_joint" value="${wheel_props['z_offset']}"/>
@@ -173,7 +173,7 @@
         <geometry>
           <box size="${base_prop['base']['x_size']} ${base_prop['base']['y_size']} ${base_prop['base']['z_size']}"/>
         </geometry>
-        <material name="blue" />
+        <material name="silver" />
       </visual>
     </xacro:if>
     <collision>
@@ -243,31 +243,6 @@
     </inertial>
   </xacro:macro>
 
-<!-- ===================== Sphere intertia xacro ===============================
-
-  params:
-  - m [float]: link mass;
-  - r [float]: sphere radius;
--->
-  <!-- <xacro:macro name="sphere_inertia" params="m r">
-    <inertial>
-      <mass value="${m}"/>
-      <inertia ixx="${2.0*m*(r*r)/5.0}" ixy="0.0" ixz="0.0" iyy="${2.0*m*(r*r)/5.0}" iyz="0.0" izz="${2.0*m*(r*r)/5.0}"/>
-    </inertial>
-  </xacro:macro> -->
-
-<!-- ===================== Default intertial xacro =============================
-
-  params:
-  - m [float]: link mass;
--->
-  <!-- <xacro:macro name="default_inertial" params="mass">
-    <inertial>
-      <mass value="${mass}"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
-    </inertial>
-  </xacro:macro> -->
-<!-- ========================================================================-->
 
 <!-- ===================== Material ============================================
 
